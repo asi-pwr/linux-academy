@@ -1,0 +1,8 @@
+.row
+  .span10
+    - news.each do |entry|
+      .entry
+        %h2= entry[:header]
+        .description
+          = entry[:date] + ', ' + entry[:author]
+        = markdown entry[:content]

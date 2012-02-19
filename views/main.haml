@@ -1,0 +1,30 @@
+.row
+  .span10
+    #photos.carousel
+      .carousel-inner
+        - carousel.each.with_index do |item, i|
+          %div{:class => i == 0 ? 'item active' : 'item'}
+            %img{:src => item[:img], :alt => ''}
+            .carousel-caption
+              %h4= item[:header]
+              %p= item[:content]
+      %a.left.carousel-control{:href => '#photos', 'data-slide' => 'prev'} &lsaquo;
+      %a.right.carousel-control{:href => '#photos', 'data-slide' => 'next'} &rsaquo;
+
+.row
+  .span5
+    - news(5).each do |entry|
+      .entry
+        %h2= entry[:header]
+        .description
+          = entry[:date] + ', ' + entry[:author]
+        = markdown entry[:content]
+
+  .span5
+    - lectures(5).each do |entry|
+      .entry
+        %h2= entry[:header]
+        .description
+          = entry[:date] + ', prowadzi '
+          %a{:href => '/o_nas#' + entry[:author]}= entry[:author]
+        = markdown entry[:content]

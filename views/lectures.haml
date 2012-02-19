@@ -1,0 +1,9 @@
+.row
+  .span10
+    - lectures.each do |entry|
+      .entry
+        %h2= entry[:header]
+        .description
+          = entry[:date] + ', prowadzi '
+          %a{:href => '/o_nas#' + entry[:author]}= entry[:author]
+        = markdown entry[:content]
