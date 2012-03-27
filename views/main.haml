@@ -25,6 +25,8 @@
       .entry
         %h2= entry[:header]
         .description
-          = entry[:date] + ', prowadzi '
+          = entry[:date] + ', ' + entry[:place]
+          %br
+          prowadzi
           %a{:href => '/o_nas#' + entry[:author]}= entry[:author]
         = markdown entry[:content]

@@ -1,9 +1,10 @@
+# encoding: utf-8
 require 'sinatra'
 
 set :haml, :layout_engine => :erb
 
 def data_dir dir, data, limit = nil
-    files = Dir["data/#{dir}/*"].sort
+    files = Dir["data/#{dir}/*"].sort.reverse
     files = files[-limit..-1] if limit and files.length > limit
     files.map do |file|
         File.read(file) =~ /#{'(.*?)\n' * (data.length-1)}(.*)/m
@@ -21,7 +22,7 @@ def news limit=nil
 end
 
 def lectures limit=nil
-    data_dir :lectures, [:header, :date, :author, :content], limit
+    data_dir :lectures, [:header, :date, :place, :author, :content], limit
 end
 
 get '/' do

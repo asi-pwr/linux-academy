@@ -1,9 +1,23 @@
 .row
   .span10
-    - lectures.each do |entry|
-      .entry
+    .entry
+      Wszystkie wykłady odbywają się na kampusie politechniki. Przykładowo, "C-13/2.17" oznacza salę 2.17 w budynku C-13.
+- lectures.each do |entry|
+  .row
+    .span2
+      %p.date
+        - date = entry[:date].split /(?:\s|,)+/
+        %span.big=date[0]
+        %br
+        =date[1]
+        %br
+        =date[2]
+        %br
+        %span.dark=entry[:place]
+    .span8
+      .entry{:id => entry[:header]}
         %h2= entry[:header]
         .description
-          = entry[:date] + ', prowadzi '
+          = 'Prowadzący: '
           %a{:href => '/o_nas#' + entry[:author]}= entry[:author]
         = markdown entry[:content]
