@@ -1,0 +1,89 @@
+body {
+  padding: 30px 0px;
+  background-color: #eee;
+}
+
+.carousel-inner {
+  border-radius: 4px;
+  box-shadow: 0pt 1px 3px rgba(0, 0, 0, 0.15), 0pt -1px 0pt rgba(0, 0, 0, 0.1) inset;
+}
+
+.navbar-inner > .container {
+  width: auto;
+}
+
+.entry {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0pt 1px 3px rgba(0, 0, 0, 0.15), 0pt -1px 0pt rgba(0, 0, 0, 0.1) inset;
+}
+
+.entry > .description {
+  font-style: italic;
+  font-size: 0.9em;
+  margin-top: -0.3em;
+  margin-bottom: 0.6em;
+  color: #666;
+}
+
+.entry > address {
+  margin-bottom: 0.6em;
+}
+
+.footer {
+  border-radius: 4px;
+  box-shadow: 0pt 1px 3px rgba(0, 0, 0, 0.15), 0pt -1px 0pt rgba(0, 0, 0, 0.1) inset;
+  background-image: -moz-linear-gradient(center top , #333, #222);
+  background-repeat: repeat-x;
+  background-color: #2c2c2c;
+  color: #999;
+}
+
+.footer > p {
+  padding: 0pt 20px;
+  font-size: 0.9em;
+  line-height: 3em;
+  display: inline;
+}
+
+.footer > .right {
+  float: right;
+}
+
+.footer > .right > a {
+  color: #fff;
+}
+
+img.round {
+  border-radius: 4px;
+  box-shadow: 0pt 1px 3px rgba(0, 0, 0, 0.15), 0pt -1px 0pt rgba(0, 0, 0, 0.1) inset;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.date {
+  padding-left: 20px;
+  padding-top: 20px;
+  color: #666;
+  font-weight: bold;
+  font-size: 2.3em;
+  line-height: 1em;
+  text-align: center;
+  text-shadow: 0px 1px 0px #fff;
+}
+
+.date > .big {
+  color: #333;
+  font-size: 1.5em;
+}
+
+.date > .dark {
+  color: #333;
+  font-size: 0.8em;
+}
+
+.navbar .brand {
+  padding: 5px 20px 0;
+}

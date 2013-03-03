@@ -1,0 +1,54 @@
+body {
+  padding: 30px 0px;
+  background-color: #eee;
+}
+
+.carousel-inner {
+  border-radius: 4px;
+  box-shadow: 0pt 1px 3px rgba(0, 0, 0, 0.15), 0pt -1px 0pt rgba(0, 0, 0, 0.1) inset;
+}
+
+.navbar-inner > .container {
+  width: auto;
+}
+
+.entry {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0pt 1px 3px rgba(0, 0, 0, 0.15), 0pt -1px 0pt rgba(0, 0, 0, 0.1) inset;
+}
+
+.entry > .description {
+  font-style: italic;
+  font-size: 0.9em;
+  margin-top: -0.3em;
+  margin-bottom: 1em;
+  color: #666;
+}
+
+.footer {
+  border-radius: 4px;
+  box-shadow: 0pt 1px 3px rgba(0, 0, 0, 0.15), 0pt -1px 0pt rgba(0, 0, 0, 0.1) inset;
+  background-image: -moz-linear-gradient(center top , #333, #222);
+  background-repeat: repeat-x;
+  background-color: #2c2c2c;
+  color: #999;
+}
+
+.footer > p {
+  padding: 0pt 20px;
+  font-size: 0.9em;
+  line-height: 3em;
+  display: inline;
+}
+
+.footer > .right {
+  float: right;
+}
+
+.footer > .right > a {
+  color: #fff;
+}
+
