@@ -13,7 +13,7 @@
 
 .row
   .span5
-    - news(5).each do |entry|
+    - news(2).each do |entry|
       .entry
         %h2= entry[:header]
         .description
@@ -21,7 +21,7 @@
         = markdown entry[:content]
 
   .span5
-    - lectures(5).each do |entry|
+    - lectures(5).reverse.each do |entry|
       .entry
         %h2= entry[:header]
         .description

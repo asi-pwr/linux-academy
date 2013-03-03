@@ -1,16 +1,19 @@
 # encoding: utf-8
+require 'erubis'
 require 'sinatra'
 require 'atom'
 
 set :haml, :layout_engine => :erb
+$number_of_news = 2
+$number_of_lectures = 5
 
 def data_dir dir, data, limit = nil
     files = Dir["data/#{dir}/*"].sort.reverse
-    files = files[-limit..-1] if limit and files.length > limit
+    files = files[0...limit] if limit and files.length > limit
     files.map do |file|
         File.read(file) =~ /#{'(.*?)\n' * (data.length-1)}(.*)/m
         m = Regexp.last_match
-        Hash[data.map.with_index { |key,i| [key, m[i+1]] }]
+        Hash[data.map.with_index { |key,i| [key, m[i+1]] } + [:type, dir]]
     end
 end
 
