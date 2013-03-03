@@ -1,0 +1,9 @@
+Wyrażenia regularne
+24 kwietnia 2012, godzina 19:00
+C-13/2.17
+Sergiy Dorosh
+Wyrażenia regularne to narzędzie, które jest niezastąpione w przetwarzaniu tekstu.
+Niezależnie od tego, czy chcemy znaleźć wszystkie adresy IP w pliku, wyciągnąć ścieżkę z url-a, czy po prostu znaleźć tekst pasujący do wzorca w pliku, korzystamy właśnie z nich.
+Na tym wykładzie zostanie pokazane jak działają, zarówno teoretycznie, jak i na przykładach.
+
+Prezentacja z wykładu: [http://linuxacademy.pl/wyklady/wyrazenia/index.html](http://linuxacademy.pl/wyklady/wyrazenia/index.html)
