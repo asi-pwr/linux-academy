@@ -1,5 +1,6 @@
 # encoding: utf-8
 require 'sinatra'
+require 'atom'
 
 set :haml, :layout_engine => :erb
 
@@ -48,4 +49,25 @@ end
 get '/kontakt' do
     @active_page = :contact
     haml :contact
+end
+
+get '/atom' do
+    content_type 'application/atom+xml'
+    Atom::Feed.new do |feed|
+        feed.title = "Linux Acedemy"
+        feed.links << Atom::Link.new(:href => 'http://linuxacademy.pl')
+        feed.updated = [File.mtime('data/news'), File.mtime('data/lectures')].max
+        feed.id = 'http://linuxacademy.pl/'
+        entries = news($number_of_news) + lectures($number_of_lectures)
+        entries = entries.sort_by { |e| e[:date] }
+        entries.each do |entry|
+            feed.entries << Atom::Entry.new do |e|
+                e.title = entry[:header]
+                e.links << Atom::Link.new(:href => 'http://linuxacademy.pl/')
+                e.id = "http://linuxacademy.pl/#{entry[:type]}/#{entry[:date]}"
+                e.content = Atom::Content::Html.new(markdown entry[:content])
+                e.authors << entry[:author]
+            end
+        end
+    end.to_xml
 end
