@@ -4,3 +4,5 @@ C-13/2.17
 Bartosz Jankiewicz
 Play Framework jest dosyć nową biblioteką w ekosystemie JVM. Oparty na języku Scala udostępnia API także dla Java. To co go wyróżnia to niezależność od platformy J2EE (Servlety) poprzez stworzenie zintegrowanego systemu obsługi połączeń HTTP opartego na asynchronicznej obsłudze wejścia/wyjścia (non-blocking IO. Twórcom Frameworka przyświecała idea stworzenia bardzo skalowalnego narzędzia, które jednocześnie zbliży się łatwością wdrożenia aplikacji do języków skryptowych.
 Podczas prezentacji zademonstruję w jaki sposób twórcom frameworku udało się zrealizować te cele zaczynając od stworzenia nowej aplikacji, użycia bazy danych, posługiwania się routingiem, bazą danych oraz szablonami.
+
+Dostępna jest [prezentacja](/wyklady/play-framework/play-framework-oraz-scala.pptx) i [pliki przykładowego projektu](/wyklady/play-framework/play-with-play.zip).

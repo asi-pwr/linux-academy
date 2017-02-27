@@ -1,0 +1,95 @@
+.row
+  .span10
+    %form.entry{:method => "post", :action => ""}
+      %section
+        %header
+          %h3 Jak oceniasz poszczególne wykłady?
+          1 &ndash; gorszy niż wykład na uczelni, 5 &ndash; ten sam wykład jeszcze raz nadal byłby ciekawy)
+          %br
+          Jeśli nie było cię na którymś wykładzie -- nie wypełniaj pola.
+        %br
+        %table
+          %tr
+            %td Wstęp do programowania funkcyjnego
+            %td
+              1
+              %input{:type => 'radio', :name=>'lecture1', :value => '1'}
+              %input{:type => 'radio', :name=>'lecture1', :value => '2'}
+              %input{:type => 'radio', :name=>'lecture1', :value => '3'}
+              %input{:type => 'radio', :name=>'lecture1', :value => '4'}
+              %input{:type => 'radio', :name=>'lecture1', :value => '5'}
+              5
+          %tr
+            %td Wstęp do praktycznej kryptografii
+            %td
+              1
+              %input{:type => 'radio', :name=>'lecture2', :value => '1'}
+              %input{:type => 'radio', :name=>'lecture2', :value => '2'}
+              %input{:type => 'radio', :name=>'lecture2', :value => '3'}
+              %input{:type => 'radio', :name=>'lecture2', :value => '4'}
+              %input{:type => 'radio', :name=>'lecture2', :value => '5'}
+              5
+          %tr
+            %td Wstęp do Erlanga
+            %td
+              1
+              %input{:type => 'radio', :name=>'lecture3', :value => '1'}
+              %input{:type => 'radio', :name=>'lecture3', :value => '2'}
+              %input{:type => 'radio', :name=>'lecture3', :value => '3'}
+              %input{:type => 'radio', :name=>'lecture3', :value => '4'}
+              %input{:type => 'radio', :name=>'lecture3', :value => '5'}
+              5
+          %tr
+            %td Wstęp do algorytmów uczenia się maszyn
+            %td
+              1
+              %input{:type => 'radio', :name=>'lecture4', :value => '1'}
+              %input{:type => 'radio', :name=>'lecture4', :value => '2'}
+              %input{:type => 'radio', :name=>'lecture4', :value => '3'}
+              %input{:type => 'radio', :name=>'lecture4', :value => '4'}
+              %input{:type => 'radio', :name=>'lecture4', :value => '5'}
+              5
+          %tr
+            %td Wstęp do programowania w shellach linuksowych<span style="white-space: pre">	 </span>
+            %td
+              1
+              %input{:type => 'radio', :name=>'lecture5', :value => '1'}
+              %input{:type => 'radio', :name=>'lecture5', :value => '2'}
+              %input{:type => 'radio', :name=>'lecture5', :value => '3'}
+              %input{:type => 'radio', :name=>'lecture5', :value => '4'}
+              %input{:type => 'radio', :name=>'lecture5', :value => '5'}
+              5
+      %section
+        %header
+          %h3 O czym chciałbyś usłyszeć w następnych cyklach?
+        
+        %ul{:style => 'list-style: none'}
+          %li <input type='checkbox' name='languages' /> Języki programowania
+          %li <input type='checkbox' name='apps' /> Ciekawe oprogramowanie
+          %li <input type='checkbox' name='ml' /> Algorytmy uczenia się maszyn
+          %li <input type='checkbox' name='code_admin' /> Programowanie z punktu widzenia admina (shell/perl)
+          %li <input type='checkbox' name='code' /> Programowanie z punktu widzenia kodera
+          %li <input type='checkbox' name='webdev' /> Web development
+          %li <input type='checkbox' /> Inne <input type="text" name="other" />
+
+      %section
+        %header
+          %h3 Czy jesteś zainteresowany warsztatami?
+        %ul{:style => 'list-style: none'}
+          %li <input type='radio' name='lab' value='1' /> Tak
+          %li <input type='radio' name='lab' value='0' /> Nie
+      %section
+        %header
+          %h3 Co wg Ciebie należy zmienić?
+        %textarea{:name => 'changes', :rows => 10, :style=>'width: 95%'}
+      %section
+        %header
+          %h3 Skąd się dowiedziałeś o Linux Academy?
+        %ul{:style => 'list-style: none'}
+          %li <input type='radio' name='where' value='1' /> Plakaty
+          %li <input type='radio' name='where' value='2' /> Internet
+          %li <input type='radio' name='where' value='3' /> Znajomi
+          %li <input type='radio' name='where' value='4' /> Inne eventy organizowane przez ASI
+          %li <input type='radio' name='where' value='5' /> Wiedziałem już wcześniej
+
+      %button Wyślij

@@ -1,0 +1,10 @@
+Vagrant - środowiska deweloperskie
+25 marca 2015, godzina 17:20
+D-1/29
+Michał Zając
+
+"Witaj w projekcie, tutaj jest 128 rzeczy które musisz zainstalować", "Czemu to nie działa na produkcji?" czy też słynne już SOA #1 - "U mnie działa" - każda z tych wypowiedzi jest tym czego zdecydowanie nie chcemy słyszeć w trakcie tworzenia oprogramowania.
+W czasach gdy PHP i MySQL powoli przestają już królować na rynku a ich miejsce zajmują rzeczy takie jak Python, Ruby, Postgres albo MongoDB utrzymywanie wszystkich zależności oraz konfiguracji jest koszmarem. Vagrant pozwala nam rozwiązać ten oraz masę innych problemów związanych z grupową pracą nad oprogramowaniem.
+
+Wydarzenie na Facebooku: <a href="https://www.facebook.com/events/806419489405080/">Link</a><br />
+Wydarzenie NA PWr: <a href="http://www.napwr.pl/wydarzenie/2125,vagrant-srodowiska-deweloperskie/">LINK</a>
