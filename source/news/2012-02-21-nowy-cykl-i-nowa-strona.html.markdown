@@ -1,0 +1,14 @@
+---
+title: Nowy cykl i nowa strona
+date: 21-02-2012
+author: Błażej Święcicki
+tags: asi
+---
+Już za tydzień, we wtorek 28 lutego 2012 roku,
+rozpocznie się nowy cykl Linux Academy.
+
+Z tej okazji stworzyliśmy naszą nową stronę. 
+Będzie ona zawierać lepiej uporządkowane informacje o wykładach,
+pozwalając na łatwiejszy dostęp do materiałów z nich.
+
+Prosimy <a href="/kontakt">zgłaszać do nas</a> wszelkie uwagi.

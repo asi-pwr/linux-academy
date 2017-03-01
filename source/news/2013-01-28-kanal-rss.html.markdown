@@ -1,0 +1,8 @@
+---
+title: Kanał RSS
+date: 28-01-2013 
+author: Błażej Święcicki
+---
+Od dzisiaj o nowych newsach i wykładach można dowiadywać się z naszego [kanału rss](/atom).
+
+Nowych informacji można spodziewać się około połowy lutego, a samych wykładów w marcu.

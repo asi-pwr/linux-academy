@@ -1,0 +1,14 @@
+---
+title: Kolejny cykl Linux Academy
+date: 20-11-2013 
+author: Kajetan Krykwiński
+---
+Od przyszłego wtorku (26 listopada) oficjalnie rozpoczynamy kolejny cykl wykładów Linux Academy! Rozpoczynamy prelekcją Błażeja Święcickiego dotyczącą idei Semantic Web.
+
+Kalendarium prelekcji znajdziecie w zakładce "Wykłady".
+
+Zapraszamy również do polubienia naszych fanpage na Facebooku:
+
+<a href="https://www.facebook.com/LinuxAcademyPWR">Linux Academy</a>
+
+<a href="https://www.facebook.com/ASI.PWr">Akademickie Stowarzyszenie Informatyczne</a>
