@@ -16,3 +16,5 @@ gem 'redcarpet', '~> 3.3', '>= 3.3.3'
 
 # For feed.xml.builder
 gem "builder", "~> 3.0"
+gem 'slim', '~> 3.0', '>= 3.0.7'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'

@@ -1,7 +1,8 @@
 ###
 # Page options, layouts, aliases and proxies
 ###
-
+require 'slim'
+require 'bootstrap-sass'
 # Per-page layout changes:
 #
 # With no layout
@@ -40,9 +41,9 @@ activate :blog do |blog|
   blog.calendar_template = "calendar.html"
 
   # Enable pagination
-  # blog.paginate = true
-  # blog.per_page = 10
-  # blog.page_link = "page/{num}"
+  blog.paginate = true
+  blog.per_page = 5
+  blog.page_link = "page/{num}"
 end
 
 page "/feed.xml", layout: false
@@ -61,8 +62,12 @@ page "/feed.xml", layout: false
 # Build-specific configuration
 configure :build do
   # Minify CSS on build
-  # activate :minify_css
+  activate :minify_css
 
   # Minify Javascript on build
-  # activate :minify_javascript
+  activate :minify_javascript
 end
+
+set :css_dir, "stylesheets"
+
+set :js_dir, "javascripts"
