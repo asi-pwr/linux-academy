@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=1024, user-scalable=no">
+		<script type="text/javascript" src="deck.js"></script>
+		<script type="text/javascript" src="kmeans.js"></script>
+		<script type="text/javascript" src="linear_regression.js"></script>
+		<script type="text/javascript" src="flot/jquery.flot.min.js"></script>
+		<script type="text/javascript" src="flot/jquery.flot.navigate.js"></script>
+        <script type="text/javascript"
+           src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML">
+           </script>
+		<link type="text/css" rel="stylesheet" href="deck.css" />
+		<title>Algorytmy uczenia się maszyn &ndash; Linux Acedemy, 2012-03-20</title>
+	</head>
+    <body class="deck-container" style="width: 900px;">
+        <header class="slide">
+            <div class="vcenter">
+                <h1>Wstęp do algorytmów uczenia się maszyn</h1>
+                <h2>Błażej Święcicki</h2>
+            </div>
+        </header>
+        <section class="slide">
+            <header><h2>Podział algorytmów</h2></header>
+            <ul>
+                <li>Uczenie nienadzorowane
+                    <ul class="slide">
+                        <li>Klasteryzacja (np. algorytm K-średnich)</li>
+                        <li>Kompresja (np. algorytm PCA)</li>
+                    </ul>
+                </li>
+                <li>Uczenie nadzorowane
+                    <ul class="slide">
+                        <li>Regresja (liniowa)</li>
+                        <li>Klasyfikacja (np. sieci neuronowe)</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <section class="slide">
+        	<header><h2>Algorytm k-średnich</h2></header>
+        	<div id="demo">
+        	</div>
+        	<ul>
+        	   <li class="slide">Przydziela każdy punkt danych do najbliższego środka</li> <!-- 5 -->
+        	   <li class="slide">Przesuwa środki w środek swoich przydzielonych punktów</li>
+        	   <li class="slide dots">I tak w kółko...</li>
+        	   <span class="slide"></span> <!-- 8 -->
+        	   <span class="slide"></span>
+        	   <span class="slide"></span>
+        	   <span class="slide"></span>
+        	   <span class="slide"></span>
+        	   <span class="slide"></span> <!-- 13 -->
+        	   <span class="slide"></span>
+        	   <span class="slide"></span>
+        	   <span class="slide"></span>
+        	   <span class="slide"></span>
+        	   <span class="slide"></span> <!-- 18 -->
+        	   <li class="slide">Aż środki nie przestaną się zmieniać</li>
+        	</ul>
+        	<script type="text/javascript">
+        	$(document).bind('deck.change', function(event, from, to) {
+                if(to >= 4 && to <= 19) {
+                    if(to < from || from < 4) {
+                        kmeans = new KMeans();
+                        kmeans.onload = function() {
+                            viz = new KMeansVizualizer(document.getElementById('demo'), kmeans);
+                            for(var i = 4; i < to; i++) {
+                                kmeans.assignClusters(); viz.drawPixels();
+                                kmeans.moveCenters(); viz.updateCenters();
+                            }
+                        }
+                        kmeans.init('demo.png', [[126, 6], [134, 34], [124, 53], [17, 22]]);
+                    } else if(to == 5) {
+                        kmeans.assignClusters(); viz.drawPixels();
+                    } else if(to == 6) {
+                        kmeans.moveCenters(); viz.updateCenters();
+                    } else if(from > 5 && to > from) {
+                        for(var i = from; i < to; i++) {
+                            kmeans.assignClusters(); viz.drawPixels();
+                            kmeans.moveCenters(); viz.updateCenters();
+                        }
+                    }
+                }
+            });
+        	</script>
+        </section>
+        <section class="slide">
+            <header><h2>Regresja liniowa</h2>
+            <div id="regression_1" style="width: 800px; height: 300px;"></div>
+            <ul>
+                <li class="slide">Bierzemy zbiór wartości (oś y) zależnych od cech (w tym wypadku jednej, na osi x)</li>
+                <li class="slide">I rysujemy linię przez "środek" tych danych (tutaj: y = <span class="reg0_1"></span>*x + <span class="reg0_0"></span>)</li>
+            </ul>
+            <script type="text/javascript">
+            var reg0 = {
+                data: null,
+                result: null,
+                isolines: null
+            };
+            var line;
+            $(document).bind('deck.change', function(event, from, to) {
+                if(to == 21 || (to > 20 && !reg0.data)) {
+                    reg0.data = []; reg0.isolines = null;
+                    for(var i = 0; i < 100; i++) {
+                        reg0.data.push([i/10.0, i/10.0 + Math.random()*10]);
+                    }
+                    var tmp = linearRegression(reg0.data, 0.01);
+                    var cost = tmp[1];
+                    reg0.result = tmp[0];
+                    line = [[0, reg0.result[0]], [10, reg0.result[0] + 10*reg0.result[1]]];
+                    $('.reg0_0').html(reg0.result[0].toFixed(2));
+                    $('.reg0_1').html(reg0.result[1].toFixed(2));
+                    $('.reg0_j').html(cost.toFixed(2));
+                }
+                
+                if(to == 20) {
+                    $.plot($('#regression_1'), [[0,0]], {xaxis: {min: 0, max: 10}, yaxis: {min: 0, max: 20}});
+                } else if(to == 21) {
+                    $.plot($('#regression_1'), [{data: reg0.data, points: {show: true}}], {xaxis: {min: 0, max: 10}});
+                } else if(to == 22) {
+                    $.plot($('#regression_1'), [{data: reg0.data, points: {show: true}}, line]);
+                }
+            });
+            </script>
+        </section>
+        <section class="slide">
+            <header><h2>Regresja liniowa</h2></header>
+            <section>
+                <header><h3>Co chcemy zrobić?</h3></header>
+                <ul>
+                    <li>Znaleźć funkcję w formie y = a<sub>1</sub>x + a<sub>0</sub></li>
+                    <li>...która będzie najbliżej naszych danych.</li>
+                    <li>Innymi słowy, chcemy zminimalizować średnią odległość funkcji od wartości punktu.</li>
+                    <li>Żeby ułatwić późniejsze obliczenia, weźmiemy kwadrat odległości</li>
+                    <li>Przykładowo, dla danych z wykresu: <span style="white-space: nowrap">(<span class="reg0_1"></span>*x + <span class="reg0_0"></span> - y)<sup>2</sup> = <span class="reg0_j"></span></span></li>
+                    <li>Funkcję, która to liczy nazywany funkcją kosztu, lub po prostu kosztem.</li>
+                    <li>Ma ona wzór: <math title="J(a_0, a_1) = sum_{i=0}^{m} (a_0 + a_1x_i - y_i)^2"><mstyle displaystyle="true"><mi>J</mi><mrow><mo>(</mo><msub><mi>a</mi><mn>0</mn></msub><mo>,</mo><msub><mi>a</mi><mn>1</mn></msub><mo>)</mo></mrow><mo>=</mo><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn><mi _moz-math-font-style="italic">m</mi></mrow></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>m</mi></mrow></munderover></mrow><msup><mrow><mo>(</mo><msub><mi>a</mi><mn>0</mn></msub><mo>+</mo><msub><mi>a</mi><mn>1</mn></msub><msub><mi>x</mi><mi>i</mi></msub><mo>-</mo><msub><mi>y</mi><mi>i</mi></msub><mo>)</mo></mrow><mn>2</mn></msup></mstyle></math></li>
+                </ul>
+            </section>
+            <section>
+                <header><h3>Jak to zrobić?</h3></header>
+                <ul>
+                    <li>Algorytmów minimalizacji funkcji jest wiele</li>
+                    <li>Tutaj uzyjemy jednego z najprostszych -- Gradient Descent</li>
+                </ul>
+            </section>
+        </section>
+
+        <section class="slide">
+            <header><h2>Gradient Descent</h2></header>
+            <div id="contour_1" style="width: 400px; height: 300px; float: left"></div>
+            <div id="cost_1" style="width: 400px; height: 300px; float: right;"></div>
+            <ol style="clear: both">
+                <li class="slide">Na wykresie zależności kosztu od cech należy wybrać punkt startowy</li>
+                <li class="slide">Od tego punktu poruszać się w stronę, w którą koszt najszybciej spada</li>
+                <li class="slide">Dla każdej współrzędnej: <math title="a_i^' = a_i - \frac{\del}{\delx_i} J(a_0, a_1)"><mstyle displaystyle="true"><mrow><msubsup><mo>a</mo><mi>i</mi><mo>'</mo></msubsup></mrow><mo>=</mo><msub><mo>a</mo><mi>i</mi></msub><mo>-</mo><mi>α</mi><mfrac><mrow><mo>∂</mo></mrow><mrow><mo>∂</mo><msub><mi>x</mi><mi>i</mi></msub></mrow></mfrac><mi>J</mi><mrow><mo>(</mo><msub><mi>a</mi><mn>0</mn></msub><mo>,</mo><msub><mi>a</mi><mn>1</mn></msub><mo>)</mo></mrow></mstyle></math><br/>
+                W tym wypadku:
+                <math title="a_0^' = a_0 - \frac{1}{m}\sum_{i=0}^m (a_0 + a_1x_i - y_i) "><mstyle displaystyle="true"><mrow><msubsup><mi>a</mi><mn>0</mn><mo>'</mo></msubsup></mrow><mo>=</mo><msub><mi>a</mi><mn>0</mn></msub><mo>-</mo><mfrac><mrow><mi>α</mi></mrow><mrow><mi>m</mi></mrow></mfrac><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mi>m</mi></munderover></mrow><mrow><mo>(</mo><msub><mi>a</mi><mn>0</mn></msub><mo>+</mo><msub><mi>a</mi><mn>1</mn></msub><msub><mi>x</mi><mi>i</mi></msub><mo>-</mo><msub><mi>y</mi><mi>i</mi></msub><mo>)</mo></mrow></mstyle></math><br/>
+                <math title="a_1^' = a_0 - \frac{1}{m}\sum_{i=0}^m (a_0 + a_1x_i - y_i)*x_i"><mstyle displaystyle="true"><mrow><msubsup><mi>a</mi><mn>1</mn><mo>'</mo></msubsup></mrow><mo>=</mo><msub><mi>a</mi><mn>0</mn></msub><mo>-</mo><mfrac><mrow><mi>α</mi></mrow><mrow><mi>m</mi></mrow></mfrac><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mi>m</mi></munderover></mrow><mrow><mo>(</mo><msub><mi>a</mi><mn>0</mn></msub><mo>+</mo><msub><mi>a</mi><mn>1</mn></msub><msub><mi>x</mi><mi>i</mi></msub><mo>-</mo><msub><mi>y</mi><mi>i</mi></msub><mo>)</mo></mrow><mo>⋅</mo><msub><mi>x</mi><mi>i</mi></msub></mstyle></math>
+                </li>
+            </ol>
+            <span class="slide"></span>
+            <span class="slide"></span>
+            <span class="slide"></span>
+            <span class="slide"></span>
+            <span class="slide"></span>
+            <span class="slide"></span>
+            <span class="slide"></span>
+            <script type="text/javascript">
+            $(document).bind('deck.change', function(event, from, to) {
+                if(to == 24 || to > 24 && !reg0.isolines) {
+                    var ellipse = cost_ellipse(reg0.data);
+                    reg0.isolines = [];
+                    for(var i = 0; i < 10; i++) reg0.isolines.push([]);
+                    reg0.min_cost = ellipse.cost([reg0.result[0], reg0.result[1]]);
+                    for(var j = 0; j < 10; j++) {
+                        for(var i=0; i<=Math.PI*2; i+= 0.01) {
+                            reg0.isolines[j].push(ellipse.isoline(reg0.min_cost + Math.pow(j, 2) + 0.01, i));
+                        }
+                        reg0.isolines[j].push(reg0.isolines[j][0]);
+                    }
+                    console.log(ellipse.center);
+                    $.plot($('#contour_1'), reg0.isolines);
+                    $.plot($('#cost_1'), [[0,0]], {xaxis: {min: 0, max: 100}});
+                }
+                
+                if(to == 25 || to > 25 && (from > to || !reg0.gdPoints)) {
+                    reg0.gd = new GradientDescent(reg0.data, linearRegression.cost, linearRegression.dcost); 
+                    if(to > from || !reg0.defaultH) {
+                        reg0.defaultH = [Math.random()*10-5, Math.random()*10-5];
+                    }
+                    reg0.gd.h = reg0.defaultH;
+                    reg0.gdPoints = [];
+                    reg0.gdLocations = [];
+                    for(var j = 25; j < to; j++) {
+                        for(var i = 0; i < 100; i++) {
+                            reg0.gdPoints.push([100 * (j - 25) + i, reg0.gd.cost()]);
+                            if(i % 10 == 0 || reg0.gdLocations.length < 15) reg0.gdLocations.push(reg0.gd.h);
+                            reg0.gd.step(0.01);
+                        }
+                    }
+                }
+                if(to >= 25) {
+                    for(var i = 0; i < 100; i++) {
+                        if(i % 10 == 0 || reg0.gdLocations.length < 15) reg0.gdLocations.push(reg0.gd.h);
+                        reg0.gdPoints.push([100 * (to - 25) + i, reg0.gd.cost()]);
+                        reg0.gd.step(0.01);
+                    }
+                    $.plot($('#contour_1'), reg0.isolines.concat([{data: reg0.gdLocations, points: {show: true}, lines: {show: true}}]),
+                        {zoom: {interactive: true}, pan: {interactive: true}});
+                    $.plot($('#cost_1'), [reg0.gdPoints], {
+                        yaxis: {
+                            transform: function(v) { return Math.log(v)/Math.log(2); },
+                            inverseTransform: function(v) { return Math.pow(2, v); },
+                            min: 3
+                        },
+                        pan: {interactive: true},
+                        zoom: {interactive: true}
+                    });
+               }
+            });
+            </script>
+        </section>
+        <section class="slide">
+            <header><h2>Regresja nieliniowa</h2></header>
+            <div id="regression_2" style="width: 800px; height: 300px;"></div>
+            <ul>
+                <li class="slide">Nie do każdych danych można dopasować linię</li>
+                <li class="slide">Czasem lepiej pasuje wielomian</li>
+                <li class="slide">W tym przykładzie: <span class="reg1_3"></span>x<sup>3</sup> + <span class="reg1_2"></span>x<sup>2</sup> + <span class="reg1_1"></span>x + <span class="reg1_0"></span> (koszt: <span class="reg1_j"></span>)
+            </ul>
+            <h3 class="slide">Jak to zrobić?</h3>
+            <div class="slide">Podać kolejne potęgi cechy jako nowe cechy.</div>
+            <script type="text/javascript">
+            var reg1 = {
+                data: null,
+                result: null
+            };
+            function rnd_snd(stddev, mean) {
+                function rnd(stddev, mean) {
+                    return Math.random()*stddev - (stddev/2) + mean;
+                }
+                return rnd(stddev, mean) + rnd(stddev, mean) + rnd(stddev, mean);
+            }
+
+            $(document).bind('deck.change', function(event, from, to) {
+                if(to == 36 || (to > 35 && !reg1.data)) {
+                    reg1.data = [];
+                    reg1.dataPlot = [];
+                    for(var i = -10; i < 10; i+= 0.1) {
+                        var rnd = rnd_snd(9001, (5*i*i*i - 23*i*i + 42*i));
+                        reg1.dataPlot.push([i, rnd]);
+                        reg1.data.push([i, i*i, i*i*i, rnd]);
+                    }
+                    var tmp = linearRegression(reg1.data, 0.00001);
+                    var cost = tmp[1];
+                    var result = reg1.result = tmp[0];
+                    console.log(reg1.result, tmp[1]);
+                    line = [];
+                    for(var i = -10; i < 10; i+= 0.1) {
+                        line.push([i, result[0] + i*result[1] + i*i*result[2] + i*i*i*result[3]]);
+                    }
+                    $('.reg1_0').html(reg1.result[0].toFixed(2));
+                    $('.reg1_1').html(reg1.result[1].toFixed(2));
+                    $('.reg1_2').html(reg1.result[2].toFixed(2));
+                    $('.reg1_3').html(reg1.result[3].toFixed(2));
+                    $('.reg1_j').html(cost.toFixed(2));
+                }
+                
+                if(to == 36) {
+                    $.plot($('#regression_2'), [[0,0]], {xaxis: {min: 0, max: 10}, yaxis: {min: 0, max: 20}});
+                } else if(to == 37) {
+                    $.plot($('#regression_2'), [{data: reg1.dataPlot, points: {show: true}}], {xaxis: {min: -10, max: 10}});
+                } else if(to == 38 || (to > 38 && !reg1.done)) {
+                    reg1.done = true;
+                    $.plot($('#regression_2'), [{data: reg1.dataPlot, points: {show: true}}, line], {
+                        zoom: {interactive: true},
+                        pan: {interactive: true},
+                    });
+                }
+            });
+            </script>
+        </section>
+        <section class="slide">
+            <h1>Pytania</h1>
+        </section>
+    </body>
+</html>
+

@@ -1,0 +1,12 @@
+---
+title: Rust - wieloparadygmatowy język programowania
+date: 27-05-2015T17:20:00
+location: C-13/2.17
+author: Błażej Święcicki
+---
+Czasem, zaczynając pisać program, musimy dokonać wyboru - chcemy, żeby nasz program był szybki, czy stabilny? W pierwszym wypadku używamy C, w ostatnim - jakiegoś języka wysokiego poziomu. Ale co by było gdybyśmy mieli do dyspozycji język, w którym napisane programy są tak szybkie jak te stworzone w C, jednocześnie dając nam gwarancję, że nie wybuchną w niespodziewanym miejscu? Czy to jest w ogóle możliwe? Czy da się to zrobić wygodnie? Rust stara się odpowiedzieć twierdząco na oba pytania.
+
+Wydarzenie na Facebooku: <a href="https://www.facebook.com/events/925467517495980/">Link</a><br />
+Wydarzenie NA PWr: <a href="http://www.napwr.pl/wydarzenie/2289,rust-wieloparadygmatowy-jezyk-programowania/">Link</a>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/bjYNwnzS_LU" frameborder="0" allowfullscreen></iframe></div>

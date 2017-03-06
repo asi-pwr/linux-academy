@@ -1,0 +1,17 @@
+---
+title: Wprowadzenie do skalowalnej i odpornej na awarie architektury baz danych
+date: 12-12-201219:00:00
+location: D-1/29
+author: Bartosz Jankiewicz, Credit Suisse
+---
+Po długiej przerwie kolejny wykład z cyklu Linux Academy. Tym razem prelegentem nie będzie student, a przedstawiciel firmy Credit Suisse.
+
+Poruszy on następujące zagadnienia:
+
+  * Wyjasnienie podstawowych pojęć wydajności, dostępności i skalowalności systemów
+  * Przykłady sytemów, w których zlekceważono wymagania architektoniczne w zakresie dostępności i skalowalności
+  * Najczęściej spotykane architektury i omówienie ich problemów oraz korzyści (master-slave, shared storage, sharding)
+  * Przykłady nowoczesnych rozwiązań problemów skalowalności i dostępności: distributed cache, NoSQL, NewSQL
+  * W jaki sposób można używać nowej architektury baz danych – przykładowe wzorce projektowe i ograniczenia
+
+Prezentacja: [http://linuxacademy.pl/wyklady/skalowalnosc-baz-danych.pptx](http://linuxacademy.pl/wyklady/skalowalnosc-baz-danych.pptx)

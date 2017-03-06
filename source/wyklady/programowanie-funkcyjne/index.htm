@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=1024, user-scalable=no">
+		<script type="text/javascript" src="deck.js"></script>
+		<link type="text/css" rel="stylesheet" href="deck.css" />
+		<title>Programowanie funkcyjne &ndash; Linux Acedemy, 2012-01-21</title>
+	</head>
+    <body class="deck-container">
+        <header class="slide">
+            <div class="vcenter">
+                <h1>Wstęp do programowania funkcyjnego</h1>
+                <h2>Błażej Święcicki</h2>
+            </div>
+        </header>
+        <section class="slide">
+        	<header><h2>Czym jest programowanie funkcyjne?</h2></header>
+        	<ul>
+        		<li class="slide">Podstawową jednostką programu jest funkcja</li>
+        		<li class="slide">Kolejność wykonania programu nie zawsze jest ustalona</li>
+        		<li class="slide">Korzysta się z list, a nie z tablic</li>
+        		<li class="slide">Listy przetwarza się rekursywnie, a nie za pomocą pętli</li>
+        		<li class="slide">Wszystko jest wyrażeniem i każde wyrażenie ma wartość</li>
+        	</ul>
+        </section>
+        <section class="slide">
+        	<header><h2>Czym jest Haskell?</h2></header>
+        	Językiem programowania:
+        	<ul>
+        		<li class="slide">Czysto funkcyjnym</li>
+        		<li class="slide">Silnie typowanym</li>
+        		<li class="slide">Statycznie typowanym</li>
+        		<li class="slide">Z leniwą ewaluacją</li>
+        		<li class="slide">Z inferencją typów</li>
+			</ul>
+		</section>
+		<section class="slide">
+			<header><h2>Podstawy Haskella</h2></header>
+			Definiowanie funkcji i ich typów:
+			<pre><code>fib :: Num a => a -> a
+fib 0 = 1
+fib 1 = 1
+fib n = fib (n - 1) + fib (n - 2)</code></pre>
+			<ul style="list-style: none">
+				<li class="slide"><pre>a -> a</pre> oznacza funkcję z dowolnego typu na ten sam typ</li>
+				<li class="slide"><pre>Num a</pre> oznacza, że ten "dowolny typ" musi być numeryczny</li>
+				<li class="slide">Dzięki inferencji, typ funkcji można pominąć - kompilator haskella najczęściej sam określi właściwy</li>
+			</ul>
+		</section>
+		<section class="slide">
+			<header><h2>Listy</h2></header>
+			<div class="slide">
+			<pre><code>[1,2,3,4,5] :: Num a => [a]
+1 : 2 : 3 : 4 : 5 : [] :: Num a => [a]
+</code></pre>
+			Obie notacje są równoznaczne
+			</div>
+			<div class="slide">
+				<pre><code>(:) :: a -> [a] -> [a]</code></pre>
+				Operator <code>(:)</code> dołącza element do początku listy
+			</div>
+			<div class="slide">
+				<pre><code>[1..5]
+[1..]</code></pre>
+				Pierwsze wyrażenie tworzy listę od [1,2,3,4,5], drugie tworzy nieskończoną listę zaczynającą się od 1.
+			</div>
+			<div class="slide">
+				To nie jest magia &ndash; można zdefiniować funkcję która zwraca taką listę:
+				<pre><code>inflist n = n : inflist (n+1)</code></pre>
+			</div>
+		</section>
+		<section class="slide">
+			<header><h2>Funkcje wieloargumentowe</h2></header>
+			W wielu językach funkcyjnych nie ma funkcji wieloargumentowych. Jak więc zrealizować na przykład dodawanie?
+			<div class="slide">
+				<pre><code>(+) :: Num a => a -> a -> a</code></pre>
+				Dodawanie jest tak na prawdę funkcją, która zwraca funkcję, która zwraca liczbę.
+				Dla przykładu:
+				<pre><code>(2 +) :: Num a => a -> a
+2 + 2 :: Num a => a
+(1 -) :: Num a => a -> a
+(- 1) :: Num a => a -> a</code></pre>
+			</div>
+			<div class="slide">
+				<h3>Jak tworzyć takie funkcje?</h3>
+				<pre><code>dodaj a b = a + b
+dodaj a = \b -> a + b
+dodaj = \a -> \b -> a + b
+dodaj = \a b -> a + b</code></pre>
+			</div>
+		</section>
+		<section class="slide">
+			<header><h2>Operacje na listach</h2></header>
+			<div class="slide"><pre><code>map :: (a -> b) -> [a] -> [b]</code></pre> Aplikuje funkcję do wszystkich elementów listy.</div>
+			<pre class="slide"><code>map _ [] = []
+map f (x:xs) = f x : map f xs</code></pre>
+
+			<div class="slide" style="border-top: 1px dotted #AAA; padding-top: 1ex">
+				<pre><code>filter :: (a -> Bool) -> [a] -> [b]</code></pre> Zwraca elementy listy dla których predykat jest prawdziwy.
+			</div>
+			<pre class="slide"><code>filter _ [] = []
+filter p (x:xs) = if p x
+                  then x : filter p xs
+                  else filter p xs </code></pre>
+		</section>
+		<section class="slide">
+			<header><h2>Operacje na listach</h2></header>
+			<div class="slide"><pre><code>foldr :: (a -> b -> b) -> b -> [a] -> b</code></pre> Redukuję listę od prawej do lewej.</div>
+			<pre class="slide"><code>foldr _ z []     =  z
+foldr f z (x:xs) =  f x (foldr f z xs)</code></pre>
+            <div class="slide" style="border-top: 1px dotted #AAA; padding-top: 1ex">
+				<pre><code>zip :: [a] -> [b] -> [(a,b)]</code></pre> Zwraca listę par, z której każda ma n-ty element z pierwszej listy i n-ty z drugiej.
+			</div>
+			<pre class="slide"><code>
+zip (x:xs) (y:ys) = (x,y) : zip xs ys
+zip _ _ = []
+zipWith f xs ys = map (\(a,b) -> a b) (zip xs ys)</code></pre>
+        </section>
+        <section class="slide">
+            <header><h2>Inne funkcje</h2></header>
+            <pre><code>(x:xs) !! 0 = x
+(x:xs) !! idx = xs !! (idx - 1)
+
+take 0 _ = []
+take _ [] = []
+take n (x:xs) = x : take (n - 1) xs
+
+flip f x y = f y x
+
+f $ x = f x
+f . g = \x -> f (g x)
+
+fix f = f (fix f)</code></pre>
+        </section>
+        <section class="slide">
+            <h1>Pytania</h1>
+        </section>
+    </body>
+</html>
+

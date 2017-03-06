@@ -1,0 +1,10 @@
+---
+title: Big Data i Apache Spark
+date: 18-12-2014T18:00:00
+location: C-13/2.17
+author: Bartosz Jankiewicz
+---
+Pojęcie Big Data od dawna pojawia się na konferencjach i w prasie. W bardzo szybkim tempie rośnie zapotrzebowanie na specjalistów w tym obszarze, zaś zarobki ekspertów znacząco przekraczają średnią rynkową - http://dataconomy.com/big-data-analysts-earning-big-money-as-demand-for-predictive-analytics-specialists-rises/. Ponadto praca nad technologią Big Data jest niezwykle ciekawa i pozwala wgłębić się w problemy rozproszonego przetwarzania danych i rozwiązywania problemów, które do tej pory były domeną najszybszych super-komputerów.
+
+Wydarzenie na Facebooku: <a href="https://www.facebook.com/events/1511674025768059/">LINK</a><br />
+Wydarzenie NA PWr: <a href="http://www.napwr.pl/wydarzenie/1940,big-data-i-apache-spark/">LINK</a>

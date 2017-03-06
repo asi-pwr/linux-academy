@@ -1,0 +1,18 @@
+---
+title: Wstęp do LaTeXa
+date: 15-04-2015T17:20:00
+location: C-13/2.17
+author: Michał Smyk
+---
+Szykujesz się do napisania pracy dyplomowej? 
+Masz często do czynienia z pisaniem sprawozdań, 
+lecz oprogramowanie biurowe nie wydaje Ci się najwygodniejszym sposobem? 
+Masz przynajmniej minimalne doświadczenie z programowaniem? 
+Poznaj LaTeX - wygodny sposób na tworzenie rozbudowanych, 
+ustrukturyzowanych dokumentów który wymaga jedynie niewielkiej 
+dawki zmysłu programisty! Daj się przekonać, 
+a zaczniesz znacznie wygodniej tworzyć estetyczne, 
+rozbudowane prace pisemne.
+
+Wydarzenie na Facebooku: <a href="https://www.facebook.com/events/1395370180781888/">Link</a><br />
+Wydarzenie NA PWr: <a href="http://www.napwr.pl/wydarzenie/2165,wstep-do-latexa/">Link</a>

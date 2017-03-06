@@ -1,0 +1,21 @@
+---
+title: SCRUM - metodyka prowadzenia projektów IT
+date: 17-12-2013T18:00:00
+location: C-13/2.17
+author: Andrzej Perużyński, Bartosz Jankiewicz
+---
+W ramach wykładu prelegenci przedstawią podstawowe informacje na temat SCRUMa:
+
+* Agile programming i SCRUM – wprowadzenie
+* jak powinien wyglądać zespół, z jakich ról się składa
+* jak powinna wyglądać codzienna praca
+* jak powinna być zorganizowana i podzielona praca
+* jak robić wycenę zadań
+* jakie praktyki warto dołączyć
+
+Teoria z wyżej wymienionych punktów zostanie skonfrontowana z przykładami i doświadczeniem z życia projektowego. Przykłady dotyczyć będą pracy w projektach: polskich, międzynarodowych, fix price oraz płatnych za wykonany czas.
+
+Wydarzenie na Facebooku: <a href="https://www.facebook.com/events/178954848977473/">LINK</a>
+
+Prezentacja: <a href="http://linuxacademy.pl/wyklady/scrum/scrum.pptx">LINK</a>
+

@@ -1,22 +1,43 @@
 doctype html
-html 
+html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
     meta charset="utf-8" /
-    meta content="IE=edge;chrome=1" http-equiv="X-UA-Compatible" /
-    meta content="width=device-width, initial-scale=1" name="viewport" /
+    title Linux Academy
     = stylesheet_link_tag 'all'
-    title Linux Academy#{' - ' + current_article.title unless current_article.nil?}
+    /! Le fav
+    /! <link rel="shortut icon" href="" 
   body
-    #menubar
-      ul
-        li 
-          = link_to "Główna", ""
-        li 
-          = link_to "Wykłady", ""
-        li 
-          = link_to "O nas", ""
-        li 
-          = link_to "Kontakt", ""
-    #main role="main"
-      = yield 
+    .container
+      .row
+        .span10.offset1
+          .row
+            .span10
+              .navbar
+                .navbar-inner
+                  #navbar.container
+                    a.brand href="/" 
+                      img src="/images/la-logo.png" /
+                    ul.nav
+                      li
+                        a href="/"  Główna
+                      li
+                        a href="/wyklady"  Wykłady
+                      li
+                        a href="/o_nas"  O nas
+                      li
+                        a href="/kontakt"  Kontakt
+                    form.navbar-search.pull-right action="" 
+          = yield
+          .row
+            .span10
+              .footer
+                p © 2012. Akademickie Stowarzyszenie Informatyczne
+                p.right
+                  | Built with
+                  a href="http://twitter.github.com/bootstrap/"  Bootstrap CSS
+    /! Le scripts
+    script src="http://code.jquery.com/jquery-1.7.1.min.js" 
+    script src="bootstrap.min.js" 
+    script src="script.js" 
+ 
