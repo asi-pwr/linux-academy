@@ -1,6 +1,6 @@
 ---
 title: Wstęp do praktycznej kryptografii
-date: 06-03-201219:00:00
+date: 06-03-2012T19:00:00
 location: C-13/2.17
 author: Jakub Juszczakiewicz
 ---

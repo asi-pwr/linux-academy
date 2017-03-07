@@ -5,39 +5,42 @@ html
     meta charset="utf-8" /
     title Linux Academy
     = stylesheet_link_tag 'all'
-    /! Le fav
-    /! <link rel="shortut icon" href="" 
   body
     .container
       .row
-        .span10.offset1
-          .row
-            .span10
-              .navbar
-                .navbar-inner
-                  #navbar.container
-                    a.brand href="/" 
-                      img src="/images/la-logo.png" /
-                    ul.nav
-                      li
-                        a href="/"  Główna
-                      li
-                        a href="/wyklady"  Wykłady
-                      li
-                        a href="/o_nas"  O nas
-                      li
-                        a href="/kontakt"  Kontakt
-                    form.navbar-search.pull-right action="" 
+        .col-md-1
+        .col-md-10
+          nav.navbar.navbar-inverse
+            .container-fluid
+              .navbar-header
+                a.navbar-brand href="#"  
+                  img src="/images/la-logo.png"
+              ul.nav.navbar-nav
+                li
+                  a href="#"  Główna
+                li
+                  a href="#"  Wykłady
+                li
+                  a href="#"  O nas
+                li
+                  a href="#"  Kontakt
+        .col-md-1
+      .row
+        .col-md-1
+        .col-md-10
           = yield
-          .row
-            .span10
-              .footer
-                p © 2012. Akademickie Stowarzyszenie Informatyczne
-                p.right
-                  | Built with
-                  a href="http://twitter.github.com/bootstrap/"  Bootstrap CSS
-    /! Le scripts
-    script src="http://code.jquery.com/jquery-1.7.1.min.js" 
-    script src="bootstrap.min.js" 
-    script src="script.js" 
- 
+        .col-md-1
+      .row
+        .col-md-1
+        .col-md-10
+          .footer
+            p © 2017. Akademickie Stowarzyszenie Informatyczne
+            p.right
+              | Built with
+              a href="http://twitter.github.com/bootstrap/"  Bootstrap CSS
+        .col-md-1
+  script src="http://code.jquery.com/jquery-1.7.1.min.js" 
+  script src="all.js"
+  script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"
+  script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+  link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" 

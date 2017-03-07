@@ -1,10 +1,39 @@
-.btn-group role="group" aria-label="..."
-	button type="button" class="btn btn-default" Left
-	button type="button" class="btn btn-default" Middle
-	button type="button" class="btn btn-default" Right
-- page_articles('lectures').each_with_index do |article, i|
-  h4
-    = link_to article.title, article
-  span
-      = " " + article.date.strftime('%c') + ", " + article.data.author + ", " + article.data.location
-  = article.body
+.carousel
+  #myCarousel.carousel.rounded.slide data-ride="carousel" 
+    /! Indicators
+    ol.carousel-indicators
+      li.active data-slide-to="0" data-target="#myCarousel" 
+      li data-slide-to="1" data-target="#myCarousel" 
+      li data-slide-to="2" data-target="#myCarousel" 
+    /! Wrapper for slides
+    .carousel-inner role="listbox" 
+      .item.active
+        img src="photos/la39.jpg" 
+      .item
+        img src="photos/la40.jpg" 
+      .item
+        img src="photos/la35.jpg" 
+    a.left.carousel-control data-slide="prev" href="#myCarousel"
+        span.glyphicon.glyphicon-chevron-left
+    a.right.carousel-control data-slide="next" href="#myCarousel"
+        span.glyphicon.glyphicon-chevron-right
+    .carousel-caption
+        h4 coś tam
+        p lorem ipsum
+.row
+  .col-md-6
+    - page_articles('news')[0...3].each_with_index do |article, i|
+      .entry
+        h4
+          = link_to article.title, article
+        .description   
+            = " " + article.date.strftime('%d/%m/%y') + ", " + article.data.author
+        = article.summary(150)
+  .col-md-6
+    - page_articles('lectures')[0...3].each_with_index do |article, i|
+      .entry
+        h4
+          = link_to article.title, article
+        .description   
+            = " " + article.date.strftime('%d/%m/%y') + ", " + article.data.author
+        = article.summary(150)

@@ -1,6 +1,6 @@
 ---
 title: Wprowadzenie do Reactive Programming
-date: 19:03:2014T18:00:00
+date: 19-03-2014T18:00:00
 location: C-13/2.17
 author: Bartosz Jankiewicz
 ---

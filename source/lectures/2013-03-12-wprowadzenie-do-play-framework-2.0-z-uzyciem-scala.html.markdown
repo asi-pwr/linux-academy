@@ -1,6 +1,6 @@
 ---
 title: Wprowadzenie do Play framework 2.0 z użyciem Scala
-date: 12-03-201319:00:00
+date: 12-03-2013T18:00:00
 location: C-13/2.17
 author: Bartosz Jankiewicz
 ---

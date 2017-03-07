@@ -1,6 +1,6 @@
 ---
 title: Wyraź wszystko w Prologu
-date: 26-03-201318:00:00
+date: 26-03-2013T18:00:00
 location: C-13/2.17
 author: Michał Gabor
 ---

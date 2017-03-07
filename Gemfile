@@ -18,3 +18,6 @@ gem 'redcarpet', '~> 3.3', '>= 3.3.3'
 gem "builder", "~> 3.0"
 gem 'slim', '~> 3.0', '>= 3.0.7'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+
+# For articles summaries
+gem 'nokogiri', '~> 1.7', '>= 1.7.0.1'

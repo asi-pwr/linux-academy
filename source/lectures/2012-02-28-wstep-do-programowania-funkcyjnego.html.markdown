@@ -1,6 +1,6 @@
 ---
 title: Wstęp do programowania funkcyjnego
-date: 28-02-201219:00:00
+date: 28-02-2012T19:00:00
 location: C-13/2.17
 author: Błażej Święcicki
 ---

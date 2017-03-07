@@ -1,6 +1,6 @@
 ---
 title: Z algorytmiką na Ty - Drzewa
-date: 11-12-201219:00:00
+date: 11-12-2012T17:00:00
 location: D-1/30
 author: Jakub Juszczakiewicz
 ---

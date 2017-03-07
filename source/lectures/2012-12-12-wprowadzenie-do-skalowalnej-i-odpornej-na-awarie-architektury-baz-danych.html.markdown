@@ -1,6 +1,6 @@
 ---
 title: Wprowadzenie do skalowalnej i odpornej na awarie architektury baz danych
-date: 12-12-201219:00:00
+date: 12-12-2012T17:00:00
 location: D-1/29
 author: Bartosz Jankiewicz, Credit Suisse
 ---
