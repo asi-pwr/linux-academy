@@ -3,41 +3,17 @@
 -blog('lectures').articles.each do |article|
     .row
         .col-md-2
-            .date =article.date.strftime('%d/%m/%y')
-            .dark =article.data.location
+            .date
+                .big =article.date.strftime('%d')
+                =pl_month(article.date)
+                br
+                =article.date.strftime('%Y')
+                .dark =article.data.location
         .col-md-8
             .entry
                 h2 =article.data.title
                 .description 
-                    p Prowadzący: 
-                    =link_to article.data.author, '/o_nas#' + article.data.author
+                    p 
+                        ="Prowadzący: "
+                        =link_to article.data.author, '/o_nas#' + article.data.author
                 = article.body
-
-
-
-
-
-
-
-
-
-
-/*- lectures.each do |entry|
-  .row
-    .span2
-      %p.date
-        - date = entry[:date].split /(?:\s|,)+/
-        %span.big=date[0]
-        %br
-        =date[1]
-        %br
-        =date[2]
-        %br
-        %span.dark=entry[:place]
-    .span8
-      .entry{:id => entry[:header]}
-        %h2= entry[:header]
-        .description
-          = 'Prowadzący: '
-          %a{:href => '/o_nas#' + entry[:author]}= entry[:author]
-        = markdown entry[:content]*/

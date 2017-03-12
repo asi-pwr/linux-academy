@@ -1,25 +1,21 @@
-###
-# Page options, layouts, aliases and proxies
-###
 require 'slim'
 require 'bootstrap-sass'
-# Per-page layout changes:
-#
-# With no layout
+require 'date'
+
 page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
 
-# With alternative layout
-# page "/path/to/file.html", layout: :otherlayout
+helpers do
 
-# Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
-# proxy "/this-page-has-no-template.html", "/template-file.html", locals: {
-#  which_fake_page: "Rendering a fake page with a local variable" }
+  def pl_month (date)
+    months = ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca",
+      "lipca", "sierpnia", "września", "października", "listopada", "grudnia"]
+    ret = months[date.strftime('%m').to_i-1]
+  end
 
-###
-# Helpers
-###
+
+end
 activate :blog do |blog|
   blog.name = "carousel"
   blog.sources = "carousel/{year}-{month}-{day}-{title}.html"
@@ -37,24 +33,9 @@ end
 
 
 page "/feed.xml", layout: false
-# Reload the browser automatically whenever files change
-# configure :development do
-#   activate :livereload
-# end
 
-# Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
-
-# Build-specific configuration
 configure :build do
-  # Minify CSS on build
   activate :minify_css
-
-  # Minify Javascript on build
   activate :minify_javascript
 end
 
