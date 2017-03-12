@@ -8,8 +8,8 @@ html
   body
     .container
       .row
-        .col-md-1
-        .col-md-10
+        .col-md-2
+        .col-md-8
           nav.navbar.navbar-inverse
             .container-fluid
               .navbar-header
@@ -21,24 +21,24 @@ html
                 li
                   = link_to 'Wykłady', '/lectures.html'
                 li
-                  a href="#"  O nas
+                  = link_to 'O nas', '/about.html'
                 li
-                  a href="#"  Kontakt
-        .col-md-1
+                  = link_to 'Kontakt', '/contact.html'
+        .col-md-2
       .row
-        .col-md-1
-        .col-md-10
+        .col-md-2
+        .col-md-8
           = yield
-        .col-md-1
+        .col-md-2
       .row
-        .col-md-1
-        .col-md-10
+        .col-md-2
+        .col-md-8
           .footer
             p © 2017. Akademickie Stowarzyszenie Informatyczne
             p.right
               | Built with
               a href="http://twitter.github.com/bootstrap/"  Bootstrap CSS
-        .col-md-1
+        .col-md-2
   script src="http://code.jquery.com/jquery-1.7.1.min.js" 
   script src="all.js"
   script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"

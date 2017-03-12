@@ -2,14 +2,14 @@
 
 -blog('lectures').articles.each do |article|
     .row
-        .col-md-2
+        .col-md-3
             .date
                 .big =article.date.strftime('%d')
                 =pl_month(article.date)
                 br
                 =article.date.strftime('%Y')
                 .dark =article.data.location
-        .col-md-8
+        .col-md-9
             .entry
                 h2 =article.data.title
                 .description 
