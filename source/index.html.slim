@@ -9,17 +9,17 @@
     .carousel-inner role="listbox" 
       .item.active
         = '<img src="' + carousel_articles(0)['path'] + '"/>'
-        .carousel-caption
+        .caption
           h4
             = carousel_articles(0)['title']
       .item
         = '<img src="' + carousel_articles(1)['path'] + '"/>'
-        .carousel-caption
+        .caption
           h4
             = carousel_articles(1)['title']
       .item
         = '<img src="' + carousel_articles(2)['path'] + '"/>'
-        .carousel-caption
+        .caption
           h4
             = carousel_articles(2)['title']
     a.left.carousel-control data-slide="prev" href="#myCarousel"
