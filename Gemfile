@@ -21,3 +21,6 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 
 # For articles summaries
 gem 'nokogiri', '~> 1.7', '>= 1.7.0.1'
+
+# Alternative for middleman console
+gem 'middleman-pry'

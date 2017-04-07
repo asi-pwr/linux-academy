@@ -13,15 +13,13 @@ html
           nav.navbar.navbar-inverse
             .container-fluid
               .navbar-header
-                a.navbar-brand href="#"  
+                a.navbar-brand href="/index.html"  
                   img src="/images/la-logo.png"
               ul.nav.navbar-nav
                 li
                   = link_to "Główna", '/index.html'
                 li
                   = link_to 'Wykłady', '/lectures.html'
-                li
-                  = link_to 'O nas', '/about.html'
                 li
                   = link_to 'Kontakt', '/contact.html'
         .col-md-2
@@ -39,8 +37,10 @@ html
               | Built with
               a href="http://twitter.github.com/bootstrap/"  Bootstrap CSS
         .col-md-2
-  script src="http://code.jquery.com/jquery-1.7.1.min.js" 
-  script src="all.js"
-  script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"
-  script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-  link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" 
+  link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+  - if __FILE__ == "index.html"
+    = script src="http://code.jquery.com/jquery-1.7.1.min.js"
+    = script src="all.js"
+    = script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"
+    = script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+

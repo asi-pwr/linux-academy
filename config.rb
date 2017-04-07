@@ -1,6 +1,7 @@
 require 'slim'
 require 'bootstrap-sass'
 require 'date'
+require 'pry'
 
 page '/*.xml', layout: false
 page '/*.json', layout: false
@@ -14,12 +15,19 @@ helpers do
     ret = months[date.strftime('%m').to_i-1]
   end
 
+  def carousel_articles(index)
+    articles = Dir["source/carousel/*"].sort.reverse
+    file = File.new(articles[index])
+    ret = {}
+    while (line = file.gets)
+      line = line.split(': ')
+      ret[line[0]] = line[1]
+    end
+    ret
+  end  
 
 end
-activate :blog do |blog|
-  blog.name = "carousel"
-  blog.sources = "carousel/{year}-{month}-{day}-{title}.html"
-end
+
 
 activate :blog do |blog|
   blog.name = "lectures"
@@ -31,6 +39,7 @@ activate :blog do |blog|
   blog.sources = "news/{year}-{month}-{day}-{title}.html"
 end
 
+activate :pry
 
 page "/feed.xml", layout: false
 

@@ -1,6 +1,6 @@
 .carousel
   #myCarousel.carousel.rounded.slide data-ride="carousel" 
-    /! Indicators
+    /! Indicators  
     ol.carousel-indicators
       li.active data-slide-to="0" data-target="#myCarousel" 
       li data-slide-to="1" data-target="#myCarousel" 
@@ -8,18 +8,24 @@
     /! Wrapper for slides
     .carousel-inner role="listbox" 
       .item.active
-        img src="photos/la39.jpg" 
+        = '<img src="' + carousel_articles(0)['path'] + '"/>'
+        .carousel-caption
+          h4
+            = carousel_articles(0)['title']
       .item
-        img src="photos/la40.jpg" 
+        = '<img src="' + carousel_articles(1)['path'] + '"/>'
+        .carousel-caption
+          h4
+            = carousel_articles(1)['title']
       .item
-        img src="photos/la35.jpg" 
+        = '<img src="' + carousel_articles(2)['path'] + '"/>'
+        .carousel-caption
+          h4
+            = carousel_articles(2)['title']
     a.left.carousel-control data-slide="prev" href="#myCarousel"
         span.glyphicon.glyphicon-chevron-left
     a.right.carousel-control data-slide="next" href="#myCarousel"
         span.glyphicon.glyphicon-chevron-right
-    .carousel-caption
-        h4 coś tam
-        p lorem ipsum
 br
 .row
   .col-md-6
@@ -38,3 +44,4 @@ br
         .description   
             = " " + article.date.strftime('%d/%m/%y') + ", " + article.data.author
         = article.summary(150)
+

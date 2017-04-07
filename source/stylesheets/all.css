@@ -103,9 +103,6 @@ img.round {
     width:      100%;
     height:     100%;
   }
-
-  /* added by AnalDestroyer69 */
-
   .carousel {
     border-radius: 5px 5px 5px 5px;
     overflow: hidden;

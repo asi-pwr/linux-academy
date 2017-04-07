@@ -1,0 +1,4 @@
+---
+path: /photos/la39.jpg
+title: Linux Academy #39 - OpenEmbedded
+---

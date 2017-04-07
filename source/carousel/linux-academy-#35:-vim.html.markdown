@@ -1,4 +1,4 @@
 ---
 path: /photos/la35.jpg
-title: Linux Academy #35: Vim
+title: Linux Academy #35 - Vim
 ---
